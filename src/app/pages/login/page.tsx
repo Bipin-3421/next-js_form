@@ -1,11 +1,9 @@
-// app/login/page.tsx
-
 "use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import AuthForm from "../components/AuthForm";
-import { LoginFormData } from "../types/auth";
+import AuthForm from "../../components/AuthForm";
+import { LoginFormData } from "../../types/auth";
 
 const Login: React.FC = () => {
   const router = useRouter();
@@ -20,12 +18,14 @@ const Login: React.FC = () => {
 
       if (response.ok) {
         const { accessToken, role, email } = await response.json();
-        console.log(email);
+        console.log(accessToken, role, email);
 
         // Store the token in localStorage
         localStorage.setItem("token", accessToken);
+        localStorage.setItem("role", role);
+        localStorage.setItem("email", email);
         // Redirect to dashboard with role
-        router.push(`/dashboard?email=${email}`);
+        router.push(`/pages/admin`);
       } else {
         console.error("Login failed:", await response.json());
       }

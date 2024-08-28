@@ -1,5 +1,3 @@
-// app/dashboard/page.tsx
-
 "use client";
 
 import React from "react";
@@ -15,8 +13,7 @@ const Dashboard: React.FC = () => {
       <div className="bg-white p-6 rounded shadow-md">
         <h1 className="text-2xl text-black font-semibold mb-4">Dashboard</h1>
         <p className="text-lg text-black">
-          Welcome! You are logged in as {role}
-          {email}.
+          Welcome! You are logged in as {role} {email}
         </p>
       </div>
     </div>
